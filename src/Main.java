@@ -11,5 +11,7 @@ public class Main {
         figure1.ajouterArc("A", "D", 87);
         figure1.ajouterArc("D", "B", 23);
 
+        System.out.println(figure1);
+
     }
 }

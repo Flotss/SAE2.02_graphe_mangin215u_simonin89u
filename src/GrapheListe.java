@@ -50,4 +50,16 @@ public class GrapheListe implements Graphe{
         return this.ensNoeuds.get(this.ensNom.indexOf(n)).getAdj();
     }
 
+    public String toString(){
+        String res = "";
+        for (String s : this.ensNom){
+            res += s + " -> ";
+            for(Arc a : this.suivants(s)){
+                res += a.getDest() + "(" + (int)a.getCout() + ") ";
+            }
+            res+= "\n";
+        }
+        return res;
+    }
+
 }

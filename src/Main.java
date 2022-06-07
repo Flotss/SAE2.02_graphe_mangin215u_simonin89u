@@ -1,8 +1,10 @@
 public class Main {
     public static void main(String[] args) {
 
+        // Creation d'un graphe pour representer la figure 1 du sujet
         GrapheListe figure1 = new GrapheListe();
 
+        // Ajout des arcs du graphe 1
         figure1.ajouterArc("A", "B", 12);
         figure1.ajouterArc("B", "E", 11);
         figure1.ajouterArc("E", "D", 43);
@@ -11,6 +13,7 @@ public class Main {
         figure1.ajouterArc("A", "D", 87);
         figure1.ajouterArc("D", "B", 23);
 
+        // Affichage du graphe 1
         System.out.println(figure1);
 
     }

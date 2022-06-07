@@ -33,9 +33,11 @@ public class GrapheListe implements Graphe{
     public void ajouterArc(String depart, String destination, double cout){
         if (!this.ensNom.contains(depart)){
             this.ensNom.add(depart);
+            this.ensNoeuds.add(new Noeud(depart));
         }
         if (!this.ensNom.contains(destination)){
             this.ensNom.add(destination);
+            this.ensNoeuds.add(new Noeud(destination));
         }
         this.ensNoeuds.get(this.ensNom.indexOf(depart)).ajouterArc(destination, cout);
     }

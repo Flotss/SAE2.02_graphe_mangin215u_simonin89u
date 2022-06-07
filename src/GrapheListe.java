@@ -59,6 +59,11 @@ public class GrapheListe implements Graphe{
         return this.ensNoeuds.get(this.ensNom.indexOf(n)).getAdj();
     }
 
+    /**
+     * methode toString qui permet d afficher chaque noeud du graphe avec
+     * ces arcs leur destination et leur cout
+     * @return le liste des noeuds et leurs arcs
+     */
     public String toString(){
         String res = "";
         for (String s : this.ensNom){

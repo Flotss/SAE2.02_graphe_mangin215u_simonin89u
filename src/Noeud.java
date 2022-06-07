@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ public class Noeud {
      */
     public Noeud(String nom){
         this.nom = nom;
-        this.adj = new List<Arc>();
+        this.adj = new ArrayList<>();
     }
 
     /**

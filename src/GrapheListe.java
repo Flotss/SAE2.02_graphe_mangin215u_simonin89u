@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,14 @@ public class GrapheListe implements Graphe{
         this.ensNom = new ArrayList<>();
         this.ensNoeuds = new ArrayList<>();
     }
+
+    public GrapheListe(String nomFichier) throws IOException {
+        this.ensNom = new ArrayList<>();
+        this.ensNoeuds = new ArrayList<>();
+        this.charger(nomFichier);
+    }
+
+
 
     /**
      * Ajoute un arc au graphe
@@ -60,6 +69,28 @@ public class GrapheListe implements Graphe{
     }
 
     /**
+     * Construit un graphe a partir d un fichier
+     * @param nomFichier le nom du fichier
+     * @throws IOException si le fichier n'existe pas
+     */
+    private void charger(String nomFichier) throws IOException {
+        String contenuText = "";
+        BufferedReader fichier = new BufferedReader(new FileReader("graphes/" + nomFichier));
+
+        String ligne = fichier.readLine();
+        while (ligne != null) {
+            contenuText += ligne + "\n";
+            ligne = fichier.readLine();
+        }
+
+        String[] lignes = contenuText.split("\n");
+        for (String s : lignes) {
+            String[] valeursLigne = s.split("\t");
+            this.ajouterArc(valeursLigne[0], valeursLigne[1], Double.parseDouble(valeursLigne[2]));
+        }
+    }
+
+    /**
      * methode toString qui permet d afficher chaque noeud du graphe avec
      * ces arcs leur destination et leur cout
      * @return le liste des noeuds et leurs arcs
@@ -85,7 +116,7 @@ public class GrapheListe implements Graphe{
         for (String s : this.ensNom){
             for(Arc a : this.suivants(s)){
                 res += s + " -> ";
-                res += a.getDest() + " [label = " + (int)a.getCout() + " ]\n";
+                res += a.getDest() + " [label = " + (int)a.getCout() + "]\n";
             }
         }
         return res+"}";

@@ -5,16 +5,17 @@ public class Noeud {
     private String nom;
     private List<Arc> adj;
 
-    public Noeud(){
-        throw new Error("TODO");
+    public Noeud(String nom){
+        this.nom = nom;
+        this.adj = new List<Arc>();
     }
 
     public boolean equals(Object o){
-        throw new Error("TODO");
+        return this.nom.equals(((Noeud)o).nom);
     }
 
     public void ajouterArc(String destination, double cout){
-        throw new Error("TODO");
+        this.adj.add(new Arc(destination, cout));
     }
 
 }

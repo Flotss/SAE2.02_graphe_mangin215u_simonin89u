@@ -42,4 +42,12 @@ public class Noeud {
         this.adj.add(new Arc(destination, cout));
     }
 
+    /**
+     * methode qui retourne les arcs partant du Noeud
+     * @return la liste d Arc
+     */
+    public List<Arc> getAdj(){
+        return this.adj;
+    }
+
 }

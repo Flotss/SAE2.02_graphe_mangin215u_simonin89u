@@ -23,13 +23,17 @@ public class Arc {
     }
 
     /**
-     * getter de la destination de l'arc
-     * @return
+     * getter de la destination de l arc
+     * @return la destination de l arc
      */
     public String getDest() {
       return dest;
     }
 
+    /**
+     * getter du cout de l arc
+     * @return le cout de l arc
+     */
     public double getCout() {
       return cout;
     }

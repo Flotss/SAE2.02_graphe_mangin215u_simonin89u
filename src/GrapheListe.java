@@ -42,10 +42,19 @@ public class GrapheListe implements Graphe{
         this.ensNoeuds.get(this.ensNom.indexOf(depart)).ajouterArc(destination, cout);
     }
 
+    /**
+     * Renvoie la liste des noeuds du graphe
+     * @return la liste des noeuds
+     */
     public List<String> listeNoeuds(){
         return this.ensNom;
     }
 
+    /**
+     * Renvoie la liste des arcs partant d'un noeud
+     * @param n Nom du noeud
+     * @return la liste des arcs partant du noeud
+     */
     public List<Arc> suivants(String n){
         return this.ensNoeuds.get(this.ensNom.indexOf(n)).getAdj();
     }

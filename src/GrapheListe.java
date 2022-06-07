@@ -76,4 +76,19 @@ public class GrapheListe implements Graphe{
         return res;
     }
 
+    /**
+     * Renvoie le format GraphViz du graphe
+     * @return Une chaine de caracteres representant le graphe en format GraphViz
+     */
+    public String toGraphviz(){
+        String res = "digraph {\n";
+        for (String s : this.ensNom){
+            for(Arc a : this.suivants(s)){
+                res += s + " -> ";
+                res += a.getDest() + " [label = " + (int)a.getCout() + " ]\n";
+            }
+        }
+        return res+"}";
+    }
+
 }

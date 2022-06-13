@@ -25,17 +25,35 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * classe Dijkstra qui permet de calculer le plus court chemin entre deux sommets
+ * avec la methode de Dijkstra
+ */
 public class Dijkstra {
+    /**
+     * methode qui calcule le plus court chemin entre tous les sommets
+     * @param g le graphe
+     * @param depart le sommet de depart
+     * @return un objet Valeur qui contient les plus courts chemins et leur cout entre chaque sommet
+     */
     public static Valeur resoudre(Graphe g, String depart) {
+        // initialisation de la liste de noeud qu il reste a traiter
         List<Noeud> Q = new ArrayList<>();
+        // initialisation de l'objet Valeur
         Valeur val = new Valeur();
+
+        // initialisation toutes les valeurs a +l infini et leur parent a null et on les ajoute a la liste de noeud qu il reste a traiter
         for (String v : g.listeNoeuds()) {
             val.setValeur(v, Double.MAX_VALUE);
             val.setParent(v, null);
             Q.add(new Noeud(v));
         }
+        // on initialise la valeur du noeud de depart a 0
         val.setValeur(depart, 0);
+
+        // tant que la liste de noeud qu il reste a traiter n'est pas vide on continue
         while (!Q.isEmpty()) {
+            // on cherche la valeur la plus petite et on la retire de la liste de noeud qu il reste a traiter
             Noeud u = null;
             for (Noeud n : Q) {
                 if (u == null || val.getValeur(n.getNom()) < val.getValeur(u.getNom())) {
@@ -44,8 +62,9 @@ public class Dijkstra {
             }
             Q.remove(u);
 
-
+            // on parcourt tous les noeuds qu il reste a traiter
             for (Noeud v : Q) {
+                // on parcourt tous les arcs successeur du noeud en cours
                 List<Arc> arcs = g.suivants(u.getNom());
                 for (Arc a : arcs) {
                     if (a.getDest().equalsIgnoreCase(v.getNom())) {
@@ -58,6 +77,7 @@ public class Dijkstra {
                 }
             }
         }
+        // retour des chemins les plus courts et de leur cout
         return val;
     }
 

@@ -31,5 +31,9 @@ public class Main {
         // resultat du chemin du point fixe
         System.out.println(res.calculerChemin("C"));
 
+        // affichages graphes genere numero 1
+        GrapheListe figure3 = new GrapheListe("graphesGenere/graphe4");
+        System.out.println(figure3);
+        System.out.println(figure3.toGraphviz());
     }
 }

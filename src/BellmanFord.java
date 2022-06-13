@@ -24,9 +24,9 @@ public class BellmanFord {
         val.setValeur(depart, 0);
 
         int pointFixe = val.valeur.size();
-        int i =0;
+        int indice =0;
         // tant que val et ancien ne sont pas egaux et que le nombre d iteration est inferieur a la taille du graphe on continue
-        while (!val.equals(ancien) && pointFixe > i){
+        while (!val.equals(ancien) && pointFixe > indice){
             // Ancien est assigne a val
             ancien = new Valeur(val);
             // On parcourt tous les noeuds du graphe
@@ -39,7 +39,7 @@ public class BellmanFord {
                     }
                 }
             }
-            i++;
+            indice++;
         }
         // retour de l objet Valeur
         return val;

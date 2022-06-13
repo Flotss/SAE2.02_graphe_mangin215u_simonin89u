@@ -129,7 +129,7 @@ public class Valeur {
      * @return si oui ou non les valeurs sont eagles
      */
     public boolean equals(Valeur val){
-        return this.valeur.values().stream().allMatch(v -> val.valeur.values().contains(v));
+        return val.valeur.values().containsAll(this.valeur.values());
     }
 
 }

@@ -12,8 +12,8 @@ fonction pointFixe(g InOut : Graphe, depart : Noeud)
     
     ancien <- L
     nbrSommets <- taille de g
-    i <- 0
-    Tant que L != ancien et i > nbrSommets faire
+    indice <- 0
+    Tant que L != ancien et indice > nbrSommets faire
         ancien <- L
         Pour n un noeud de g
             Pour a un arc de n
@@ -22,7 +22,15 @@ fonction pointFixe(g InOut : Graphe, depart : Noeud)
                     parent(a) <- n
             fpour
         fpour
-        i <- i + 1
+        indice <- indice + 1
     ftantque
 FIN
+
+Lexique :
+    i : entier, indice d'itération
+    ancien : Ancienne valeur de L
+    nbrSommets : Nombre de sommets du graphe
+    indice : entier, indice d'itération
+    n : Noeud, sommet du graphe
+    a : Arc, arc du graphe
 ```

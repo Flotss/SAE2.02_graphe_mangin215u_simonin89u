@@ -47,12 +47,14 @@ public class Valeur {
      */
     public List<String> calculerChemin(String destination){
         List<String> chemin = new ArrayList<>();
-        String s = destination;
-        while(s != null){
-            chemin.add(s);
-            s = this.parent.get(s);
+
+        // On ajoute le noeud parent jusqu'au point de départ du graphe
+        while(destination != null){
+            chemin.add(destination);
+            destination = this.parent.get(destination);
         }
-        // reverse chemin
+
+        // On retourne le chemin pour qu'il soit dans l'ordre
         for (int i = 0; i < chemin.size() / 2; i++) {
             String tmp = chemin.get(i);
             chemin.set(i, chemin.get(chemin.size() - i - 1));

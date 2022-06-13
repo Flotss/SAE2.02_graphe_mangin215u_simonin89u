@@ -50,4 +50,7 @@ public class Noeud {
         return this.adj;
     }
 
+    public String getNom() {
+        return nom;
+    }
 }

@@ -26,6 +26,15 @@ public class Valeur {
         this.parent = new TreeMap<>();
     }
 
+    public Valeur(Valeur a){
+        this.valeur = new TreeMap<>();
+        this.parent = new TreeMap<>();
+        for(String s : a.valeur.keySet()){
+            this.valeur.put(s, a.valeur.get(s));
+            this.parent.put(s, a.parent.get(s));
+        }
+    }
+
     /**
      * permet d'associer une valeur a un nom de noeud (ici L(X))
      *
@@ -86,6 +95,15 @@ public class Valeur {
         }
         return res;
 
+    }
+
+    /**
+     * Retourne si deux valeurs sont égales
+     * @param val valeur a comparer
+     * @return si oui ou non les valeurs sont eagles
+     */
+    public boolean equals(Valeur val){
+        return this.valeur.values().stream().allMatch(v -> val.valeur.values().contains(v));
     }
 
 }

@@ -1,4 +1,15 @@
+/**
+ * classe BellmanFord qui permet de calculer le plus court chemin
+ * entre deux noeuds avec la methode du point fixe
+ */
 public class BellmanFord {
+
+    /**
+     * methode static resoudre qui permet de calculer le plus court chemin entre chaque noeud
+     * @param g graphe dans lequel on cherche le plus court chemin
+     * @param depart noeud de depart
+     * @return un objet Valeur qui contient les plus courts chemins et leur cout entre chaque noeud
+     */
     public static Valeur resoudre(Graphe g, String depart){
         Valeur val = new Valeur();
         for (String n : g.listeNoeuds()){

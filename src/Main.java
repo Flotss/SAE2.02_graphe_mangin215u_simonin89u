@@ -25,6 +25,7 @@ public class Main {
         GrapheListe figure2 = new GrapheListe("graphe_exemple1.txt");
         Valeur res = BellmanFord.resoudre(figure2, "A");
         System.out.println(res);
+        System.out.println(res.calculerChemin("C"));
 
     }
 }

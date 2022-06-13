@@ -41,6 +41,27 @@ public class Valeur {
     }
 
     /**
+     * renvoie la list des noeuds du chemin allant vers un noeud
+     * @param destination le noeud d'arrivee
+     * @return la liste des noeuds du chemin
+     */
+    public List<String> calculerChemin(String destination){
+        List<String> chemin = new ArrayList<>();
+        String s = destination;
+        while(s != null){
+            chemin.add(s);
+            s = this.parent.get(s);
+        }
+        // reverse chemin
+        for (int i = 0; i < chemin.size() / 2; i++) {
+            String tmp = chemin.get(i);
+            chemin.set(i, chemin.get(chemin.size() - i - 1));
+            chemin.set(chemin.size() - i - 1, tmp);
+        }
+        return chemin;
+    }
+
+    /**
      * permet d'associer une valeur a un nom de noeud (ici L(X))
      *
      * @param nom    le nom du noeud

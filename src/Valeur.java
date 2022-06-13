@@ -26,6 +26,11 @@ public class Valeur {
         this.parent = new TreeMap<>();
     }
 
+    /**
+     * constructeur qui prend en parametre un objet de type Valeur
+     * pour copier les valeurs et les parents
+     * @param a un objet de type Valeur
+     */
     public Valeur(Valeur a){
         this.valeur = new TreeMap<>();
         this.parent = new TreeMap<>();

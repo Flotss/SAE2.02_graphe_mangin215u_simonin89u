@@ -16,32 +16,48 @@ public class MainComparaisonParGraphe {
         Sheet feuille = wb.createSheet("new sheet");
         //Créer une ligne
         Row row = feuille.createRow(0);
-
+        //Créer une cellule
         Cell cell = row.createCell(1);
-        cell.setCellValue("Temps moyen de Dijkstra");
+        // On écrit dans la cellule l'intitulé de la colonne ici Temps Dijkstra
+        cell.setCellValue("Temps Dijkstra");
 
+        // On écrit dans la cellule l'intitulé de la colonne ici Temps Bellman
         cell = row.createCell(2);
-        cell.setCellValue("Temps moyen de BellmanFord");
+        cell.setCellValue("Temps BellmanFord");
 
 
+        // On créer un répertoire contenant les fichiers des graphes
         File folder = new File("graphes");
-        int nombreDeGraphe = folder.listFiles().length;
-        int i = 0;
+        // Verification que c'est un répertoire
+        if (!folder.isDirectory()){
+            System.out.println("Le répertoire n'existe pas");
+            System.exit(1);
+        }
+
 
 
         System.out.println("Graphe de Djikstra");
+        int nombreDeGraphe = folder.listFiles().length;
+        int i = 0;
+        // Tableau contenant les lignes de la feuille
         Row[] rows = new Row[nombreDeGraphe+1];
         for (File file : folder.listFiles()) {
+            // Création de la ligne et de la cellule
             rows[i] = feuille.createRow(i+1);
             cell = rows[i].createCell(1);
 
+            // Execution de l'algorithme de Djikstra
+            // En prenant en compte le temps utilisé
             GrapheListe graphe = new GrapheListe(file.getPath());
             long tempsStart = System.nanoTime();
             Dijkstra.resoudre(graphe, "A");
             long tempsEnd = System.nanoTime();
             i++;
+
+            // On écrit dans la cellule le temps de l'algorithme
             cell.setCellValue((int) (tempsEnd - tempsStart));
 
+            // Logs
             if (i % 10 == 0) {
                 System.out.println("Graphe " + i + "/" + nombreDeGraphe);
             }
@@ -50,29 +66,35 @@ public class MainComparaisonParGraphe {
         System.out.println("Graphe de BellmanFord");
         i = 0;
         for (File file : folder.listFiles()) {
+            // Création de la cellule
             cell = rows[i].createCell(2);
 
+            // Execution de l'algorithme de BellmanFord
+            // En prenant en compte le temps utilisé
             GrapheListe graphe = new GrapheListe(file.getPath());
             long tempsStart = System.nanoTime();
             BellmanFord.resoudre(graphe, "A");
             long tempsEnd = System.nanoTime();
             i++;
+
+            // On écrit dans la cellule le temps de l'algorithme
             cell.setCellValue((int) (tempsEnd - tempsStart));
 
+            // Logs
             if (i % 10 == 0) {
                 System.out.println("Graphe " + i + "/" + nombreDeGraphe);
             }
         }
 
 
-        i = 0;
+        // On écrit le nom du fichier dans la cellule
         for (File file : folder.listFiles()) {
             cell = rows[i].createCell(0);
-            i++;
-            cell.setCellValue(i);
+            cell.setCellValue(file.getName());
         }
 
-        //4. Sauvegarder le document
+        // Création du fichier Excel
+        // Pour pouvoir le lire dans Excel
         FileOutputStream fileOut;
         try {
             fileOut = new FileOutputStream("tableau des response.xlsx");

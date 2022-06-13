@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 
-public class MainComparaison {
+public class MainComparaisonMoyenne {
     public static void main(String[] args) throws IOException {
         // Faire une moyenne de temps de tout les graphes
         long moyenneTempsDjikstra = 0;

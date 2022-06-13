@@ -67,8 +67,12 @@ public class Dijkstra {
                 // on parcourt tous les arcs successeur du noeud en cours
                 List<Arc> arcs = g.suivants(u.getNom());
                 for (Arc a : arcs) {
+                    // on vérifie qu'il existe un arc entre le noeud en cours et le noeud à traiter
                     if (a.getDest().equalsIgnoreCase(v.getNom())) {
+                        // on calcule la valeur du noeud a traiter
                         double D = val.getValeur(u.getNom()) + a.getCout();
+                        // Si la valeur du noeud a traiter est plus petite que le noeud en cours
+                        // Alors on met a jour la valeur du noeud en cours
                         if (D < val.getValeur(v.getNom())) {
                             val.setValeur(v.getNom(), D);
                             val.setParent(v.getNom(), u.getNom());

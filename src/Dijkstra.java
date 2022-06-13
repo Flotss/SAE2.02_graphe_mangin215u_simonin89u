@@ -51,6 +51,7 @@ public class Dijkstra {
         // on initialise la valeur du noeud de depart a 0
         val.setValeur(depart, 0);
 
+        int indice = 0;
         // tant que la liste de noeud qu il reste a traiter n'est pas vide on continue
         while (!Q.isEmpty()) {
             // on cherche la valeur la plus petite et on la retire de la liste de noeud qu il reste a traiter

@@ -22,7 +22,7 @@ public class Main {
         System.out.println(figure1);
 
         // Creation du graphe avec un fichier
-        GrapheListe figure2 = new GrapheListe("graphe_exemple1.txt");
+        GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
 
         // Resultat du point fixe
         Valeur res = BellmanFord.resoudre(figure2, "A");

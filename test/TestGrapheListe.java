@@ -47,7 +47,7 @@ public class TestGrapheListe {
     @Test
     public void testMethodeDuPointFixe() throws IOException {
         // initialisation du graphe
-        GrapheListe figure2 = new GrapheListe("graphe_exemple1.txt");
+        GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
         Valeur res = BellmanFord.resoudre(figure2, "A");
         // verifications
         assertEquals(0, res.valeur.get("A"), "La distance vers A devrait etre 0");
@@ -60,7 +60,7 @@ public class TestGrapheListe {
     @Test
     public void testMethodeDuPointFixe2() throws IOException {
         // initialisation du graphe
-        GrapheListe figure2 = new GrapheListe("graphe_exemple1.txt");
+        GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
         Valeur res = BellmanFord.resoudre(figure2, "E");
         // verifications
         assertEquals(72, res.valeur.get("A"), "La distance vers A devrait etre 0");
@@ -73,7 +73,7 @@ public class TestGrapheListe {
     @Test
     public void testMethodeDijkstra() throws IOException {
         // initialisation du graphe
-        GrapheListe figure2 = new GrapheListe("graphe_exemple1.txt");
+        GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
         Valeur res = Dijkstra.resoudre(figure2, "A");
         // verifications
         assertEquals(0, res.valeur.get("A"), "La distance vers A devrait etre 0");

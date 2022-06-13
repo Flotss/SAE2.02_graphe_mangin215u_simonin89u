@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestGrapheListe {
@@ -36,6 +38,23 @@ public class TestGrapheListe {
         assertEquals(figure1.suivants("D").get(1).getCout(), 10);
         assertEquals(figure1.suivants("E").get(0).getDest(), "D");
         assertEquals(figure1.suivants("E").get(0).getCout(), 43);
+    }
+
+    /**
+     * test la methode du point fixe sur le graphe
+     * avec la figure1 du sujet
+     */
+    @Test
+    public void testMethodeDuPointFixe() throws IOException {
+        // initialisation du graphe
+        GrapheListe figure2 = new GrapheListe("graphe_exemple1.txt");
+        Valeur res = BellmanFord.resoudre(figure2, "A");
+        // verifications
+        assertEquals(0, res.valeur.get("A"), "La distance vers A devrait etre 0");
+        assertEquals(12, res.valeur.get("B"), "La distance vers B devrait etre 12");
+        assertEquals(76, res.valeur.get("C"), "La distance vers C devrait etre 76");
+        assertEquals(66, res.valeur.get("D"), "La distance vers D devrait etre 66");
+        assertEquals(23, res.valeur.get("E"), "La distance vers E devrait etre 23");
     }
 
 }

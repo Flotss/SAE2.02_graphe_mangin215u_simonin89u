@@ -23,8 +23,12 @@ public class Main {
 
         // Creation du graphe avec un fichier
         GrapheListe figure2 = new GrapheListe("graphe_exemple1.txt");
+
+        // Resultat du point fixe
         Valeur res = BellmanFord.resoudre(figure2, "A");
         System.out.println(res);
+
+        // resultat du chemin du point fixe
         System.out.println(res.calculerChemin("C"));
 
     }

@@ -8,6 +8,10 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
+/**
+ * classe de test
+ */
 public class TestGrapheListe {
 
     /**
@@ -61,6 +65,10 @@ public class TestGrapheListe {
         assertEquals(23, res.valeur.get("E"), "La distance vers E devrait etre 23");
     }
 
+    /**
+     * test la methode du point fixe sur le graphe
+     * @throws IOException
+     */
     @Test
     public void testMethodeDuPointFixe2() throws IOException {
         // initialisation du graphe
@@ -74,6 +82,10 @@ public class TestGrapheListe {
         assertEquals(0, res.valeur.get("E"), "La distance vers E devrait etre 23");
     }
 
+    /**
+     * test la methode de Dijkstra sur le graphe
+     * @throws IOException
+     */
     @Test
     public void testMethodeDijkstra() throws IOException {
         // initialisation du graphe

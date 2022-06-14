@@ -149,41 +149,26 @@ public class Labyrinthe {
         for (int i = 0; i < murs.length; i++) {
             for (int j = 0; j < murs[i].length; j++) {
                 if (!murs[i][j]) {
-                    ajouterArc(graphe, i, j, 1);
+                    ajouterArcs(graphe, i, j, 1);
                 }
             }
         }
         return graphe;
     }
 
-    private void ajouterArc(GrapheListe g, int i, int j, int valeur) {
-        try {
-            if (!murs[(i + 1)][j]) {
-                g.ajouterArc("\"" + i + "," + j + "\"", "\"" + (i + 1) + "," + j + "\"", valeur);
-            }
-        } catch (Exception ingored) {
-        }
+    private void ajouterArcs(GrapheListe g, int x, int y, int valeur) {
+        ajouterUnArc(g, x, y, x+1, y,valeur);
+        ajouterUnArc(g, x, y, x-1, y,valeur);
+        ajouterUnArc(g, x, y, x, y+1,valeur);
+        ajouterUnArc(g, x, y, x, y-1,valeur);
+    }
 
+    private void ajouterUnArc (GrapheListe g, int x, int y, int nx, int ny , int valeur){
         try {
-            if (!murs[i][(j + 1)]) {
-                g.ajouterArc("\"" + i + "," + j + "\"", "\"" + i + "," + (j + 1) + "\"", valeur);
+            if (!murs[x][(y)]) {
+                g.ajouterArc("\"" + x + "," + y + "\"", "\"" + nx + "," + ny + "\"", valeur);
             }
-        } catch (Exception ingored) {
-        }
-
-        try {
-            if (!murs[(i - 1)][j]) {
-                g.ajouterArc("\"" + i + "," + j + "\"", "\"" + (i - 1) + "," + j + "\"", valeur);
-            }
-        } catch (Exception ingored) {
-        }
-
-        try {
-            if (!murs[i][(j - 1)]) {
-                g.ajouterArc("\"" + i + "," + j + "\"", "\"" + i + "," + (j - 1) + "\"", valeur);
-            }
-        } catch (Exception ingored) {
-        }
+        } catch (Exception ingored) {}
     }
 
 

@@ -2,6 +2,7 @@ package Main;
 
 import Classe.BellmanFord;
 import Classe.AdapterGrapheLabyrinthe;
+import Classe.Graphe;
 import Classe.Valeur;
 
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.io.IOException;
 public class MainGraphLabyrinthe {
     public static void main(String[] args) throws IOException {
         try{
-            AdapterGrapheLabyrinthe graphe = new AdapterGrapheLabyrinthe("labySimple/laby1.txt");
+            Graphe graphe = new AdapterGrapheLabyrinthe("labySimple/laby1.txt");
             System.out.println(graphe.toGraphviz());
             Valeur valeur = BellmanFord.resoudre(graphe, "\"1,1\"");
             System.out.println(valeur);

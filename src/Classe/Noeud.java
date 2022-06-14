@@ -52,6 +52,10 @@ public class Noeud {
         return this.adj;
     }
 
+    /**
+     * methode qui retourne le nom du noeud
+     * @return le nom du noeud
+     */
     public String getNom() {
         return nom;
     }

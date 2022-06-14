@@ -145,8 +145,27 @@ public class Labyrinthe {
     }
 
     public GrapheListe genererGraphe(){
-
-        return null;
+        GrapheListe graphe = new GrapheListe();
+        boolean premierNoeud = false;
+        String emplacementPremierNoeud = "";
+        while(!premierNoeud) {
+            for (int i = 0; i < murs.length; i++) {
+                for (int j = 0; j < murs[i].length; j++) {
+                    if (!murs[i][j]) {
+                        premierNoeud = true;
+                        emplacementPremierNoeud = i + "," + j;
+                    }
+                }
+            }
+        }
+        for(int i = 0; i < murs.length; i++){
+            for(int j = 0; j < murs[i].length; j++){
+                if(!murs[i][j]){
+                    graphe.ajouterArc(emplacementPremierNoeud, i+","+j, 1);
+                }
+            }
+        }
+        return graphe;
     }
 
 

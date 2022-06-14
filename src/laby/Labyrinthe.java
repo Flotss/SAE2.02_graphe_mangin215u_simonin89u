@@ -129,9 +129,9 @@ public class Labyrinthe {
      *
      * @param action une des actions possibles
      */
-    public int[] deplacerPerso(int i, int j,String action) {
+    public int[] deplacerPerso(int i, int j, String action) {
         // case courante
-        int[] courante = {i,j};
+        int[] courante = {i, j};
 
         // calcule case suivante
         int[] suivante = getSuivant(courante[0], courante[1], action);
@@ -144,28 +144,46 @@ public class Labyrinthe {
         return courante;
     }
 
-    public GrapheListe genererGraphe(){
+    public GrapheListe genererGraphe() {
         GrapheListe graphe = new GrapheListe();
-        boolean premierNoeud = false;
-        String emplacementPremierNoeud = "";
-        while(!premierNoeud) {
-            for (int i = 0; i < murs.length; i++) {
-                for (int j = 0; j < murs[i].length; j++) {
-                    if (!murs[i][j]) {
-                        premierNoeud = true;
-                        emplacementPremierNoeud = i + "," + j;
-                    }
-                }
-            }
-        }
-        for(int i = 0; i < murs.length; i++){
-            for(int j = 0; j < murs[i].length; j++){
-                if(!murs[i][j]){
-                    graphe.ajouterArc(emplacementPremierNoeud, i+","+j, 1);
+        for (int i = 0; i < murs.length; i++) {
+            for (int j = 0; j < murs[i].length; j++) {
+                if (!murs[i][j]) {
+                    ajouterArc(graphe, i, j, 1);
                 }
             }
         }
         return graphe;
+    }
+
+    private void ajouterArc(GrapheListe g, int i, int j, int valeur) {
+        try {
+            if (!murs[(i + 1)][j]) {
+                g.ajouterArc("\"" + i + "," + j + "\"", "\"" + (i + 1) + "," + j + "\"", valeur);
+            }
+        } catch (Exception ingored) {
+        }
+
+        try {
+            if (!murs[i][(j + 1)]) {
+                g.ajouterArc("\"" + i + "," + j + "\"", "\"" + i + "," + (j + 1) + "\"", valeur);
+            }
+        } catch (Exception ingored) {
+        }
+
+        try {
+            if (!murs[(i - 1)][j]) {
+                g.ajouterArc("\"" + i + "," + j + "\"", "\"" + (i - 1) + "," + j + "\"", valeur);
+            }
+        } catch (Exception ingored) {
+        }
+
+        try {
+            if (!murs[i][(j - 1)]) {
+                g.ajouterArc("\"" + i + "," + j + "\"", "\"" + i + "," + (j - 1) + "\"", valeur);
+            }
+        } catch (Exception ingored) {
+        }
     }
 
 
@@ -202,6 +220,7 @@ public class Labyrinthe {
 
     /**
      * return mur en (i,j)
+     *
      * @param x
      * @param y
      * @return

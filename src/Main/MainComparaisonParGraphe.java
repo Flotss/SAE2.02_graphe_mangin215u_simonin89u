@@ -9,7 +9,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -32,7 +31,7 @@ public class MainComparaisonParGraphe {
 
 
         // On créer un répertoire contenant les fichiers des graphes
-        File folder = new File("graphesGenere");
+        File folder = new File("graphes");
         // Verification que c'est un répertoire
         if (!folder.isDirectory()){
             System.out.println("Le répertoire n'existe pas");

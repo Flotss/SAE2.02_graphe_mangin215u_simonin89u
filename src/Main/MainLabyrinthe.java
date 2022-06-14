@@ -25,7 +25,7 @@ public class MainLabyrinthe {
         System.out.println(v);
 
         // Calcul du chemin pour aller vers 8,1
-        List<String> chemin = v.calculerChemin("\"8,1\"");
+        List<String> chemin = v.calculerChemin("\"4,3\"");
         System.out.println(chemin);
     }
 }

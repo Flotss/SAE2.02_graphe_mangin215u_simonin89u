@@ -32,20 +32,20 @@ public class TestGrapheListe {
         figure1.ajouterArc("B", "E", 11);
         // verifications
         assertEquals(figure1.listeNoeuds().size(), 5, "il devrait y avoir 5 noeuds");
-        assertEquals(figure1.suivants("A").get(0).getDest(), "B");
-        assertEquals(figure1.suivants("A").get(0).getCout(), 12);
-        assertEquals(figure1.suivants("A").get(1).getDest(), "D");
-        assertEquals(figure1.suivants("A").get(1).getCout(), 87);
-        assertEquals(figure1.suivants("B").get(0).getDest(), "E");
-        assertEquals(figure1.suivants("B").get(0).getCout(), 11);
-        assertEquals(figure1.suivants("C").get(0).getDest(), "A");
-        assertEquals(figure1.suivants("C").get(0).getCout(), 19);
-        assertEquals(figure1.suivants("D").get(0).getDest(), "B");
-        assertEquals(figure1.suivants("D").get(0).getCout(), 23);
-        assertEquals(figure1.suivants("D").get(1).getDest(), "C");
-        assertEquals(figure1.suivants("D").get(1).getCout(), 10);
-        assertEquals(figure1.suivants("E").get(0).getDest(), "D");
-        assertEquals(figure1.suivants("E").get(0).getCout(), 43);
+        assertEquals("B", figure1.suivants("A").get(0).getDest(), "le noeud B doit etre le suivant de A");
+        assertEquals("D", figure1.suivants("A").get(1).getDest(), "le noeud D doit etre le suivant de A");
+        assertEquals("E", figure1.suivants("B").get(0).getDest(), "le noeud E doit etre le suivant de B");
+        assertEquals("A", figure1.suivants("C").get(0).getDest(), "le noeud A doit etre le suivant de C");
+        assertEquals("B", figure1.suivants("D").get(0).getDest(), "le noeud B doit etre le suivant de D");
+        assertEquals("C", figure1.suivants("D").get(1).getDest(), "le noeud C doit etre le suivant de D");
+        assertEquals("D", figure1.suivants("E").get(0).getDest(), "le noeud D doit etre le suivant de E");
+        assertEquals(12 , figure1.suivants("A").get(0).getCout(), "le cout de l'arc doit etre 12");
+        assertEquals(87 , figure1.suivants("A").get(1).getCout(), "le cout de l'arc doit etre 87");
+        assertEquals(11 , figure1.suivants("B").get(0).getCout(), "le cout de l'arc doit etre 11");
+        assertEquals(19 , figure1.suivants("C").get(0).getCout(), "le cout de l'arc doit etre 19");
+        assertEquals(23 , figure1.suivants("D").get(0).getCout(), "le cout de l'arc doit etre 23");
+        assertEquals(10 , figure1.suivants("D").get(1).getCout(), "le cout de l'arc doit etre 10");
+        assertEquals(43 , figure1.suivants("E").get(0).getCout(), "le cout de l'arc doit etre 43");
     }
 
     /**
@@ -58,11 +58,11 @@ public class TestGrapheListe {
         GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
         Valeur res = BellmanFord.resoudre(figure2, "A");
         // verifications
-        assertEquals(0, res.valeur.get("A"), "La distance vers A devrait etre 0");
-        assertEquals(12, res.valeur.get("B"), "La distance vers B devrait etre 12");
-        assertEquals(76, res.valeur.get("C"), "La distance vers C devrait etre 76");
-        assertEquals(66, res.valeur.get("D"), "La distance vers D devrait etre 66");
-        assertEquals(23, res.valeur.get("E"), "La distance vers E devrait etre 23");
+        assertEquals(0,  res.getValeur("A"), "La distance vers A devrait etre 0");
+        assertEquals(12, res.getValeur("B"), "La distance vers B devrait etre 12");
+        assertEquals(76, res.getValeur("C"), "La distance vers C devrait etre 76");
+        assertEquals(66, res.getValeur("D"), "La distance vers D devrait etre 66");
+        assertEquals(23, res.getValeur("E"), "La distance vers E devrait etre 23");
     }
 
     /**
@@ -75,11 +75,11 @@ public class TestGrapheListe {
         GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
         Valeur res = BellmanFord.resoudre(figure2, "E");
         // verifications
-        assertEquals(72, res.valeur.get("A"), "La distance vers A devrait etre 0");
-        assertEquals(66, res.valeur.get("B"), "La distance vers B devrait etre 12");
-        assertEquals(53, res.valeur.get("C"), "La distance vers C devrait etre 76");
-        assertEquals(43, res.valeur.get("D"), "La distance vers D devrait etre 66");
-        assertEquals(0, res.valeur.get("E"), "La distance vers E devrait etre 23");
+        assertEquals(72, res.getValeur("A"), "La distance vers A devrait etre 0");
+        assertEquals(66, res.getValeur("B"), "La distance vers B devrait etre 12");
+        assertEquals(53, res.getValeur("C"), "La distance vers C devrait etre 76");
+        assertEquals(43, res.getValeur("D"), "La distance vers D devrait etre 66");
+        assertEquals(0,  res.getValeur("E"), "La distance vers E devrait etre 23");
     }
 
     /**
@@ -92,11 +92,11 @@ public class TestGrapheListe {
         GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
         Valeur res = Dijkstra.resoudre(figure2, "A");
         // verifications
-        assertEquals(0, res.valeur.get("A"), "La distance vers A devrait etre 0");
-        assertEquals(12, res.valeur.get("B"), "La distance vers B devrait etre 12");
-        assertEquals(76, res.valeur.get("C"), "La distance vers C devrait etre 76");
-        assertEquals(66, res.valeur.get("D"), "La distance vers D devrait etre 66");
-        assertEquals(23, res.valeur.get("E"), "La distance vers E devrait etre 23");
+        assertEquals(0,  res.getValeur("A"), "La distance vers A devrait etre 0");
+        assertEquals(12, res.getValeur("B"), "La distance vers B devrait etre 12");
+        assertEquals(76, res.getValeur("C"), "La distance vers C devrait etre 76");
+        assertEquals(66, res.getValeur("D"), "La distance vers D devrait etre 66");
+        assertEquals(23, res.getValeur("E"), "La distance vers E devrait etre 23");
     }
 
 }

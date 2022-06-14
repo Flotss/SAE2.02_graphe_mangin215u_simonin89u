@@ -76,19 +76,13 @@ public class GrapheListe implements Graphe{
      * @throws IOException si le fichier n'existe pas
      */
     private void charger(String nomFichier) throws IOException {
-        String contenuText = "";
         BufferedReader fichier = new BufferedReader(new FileReader(nomFichier));
 
         String ligne = fichier.readLine();
         while (ligne != null) {
-            contenuText += ligne + "\n";
-            ligne = fichier.readLine();
-        }
-
-        String[] lignes = contenuText.split("\n");
-        for (String s : lignes) {
-            String[] valeursLigne = s.split("\t");
+            String[] valeursLigne = ligne.split("\t");
             this.ajouterArc(valeursLigne[0], valeursLigne[1], Double.parseDouble(valeursLigne[2]));
+            ligne = fichier.readLine();
         }
     }
 

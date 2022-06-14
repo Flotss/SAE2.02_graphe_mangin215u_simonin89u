@@ -24,15 +24,15 @@ public class MainComparaisonParGraphe {
         //Créer une cellule
         Cell cell = row.createCell(1);
         // On écrit dans la cellule l'intitulé de la colonne ici Temps Classe.Dijkstra
-        cell.setCellValue("Temps Classe.Dijkstra");
+        cell.setCellValue("Temps Dijkstra");
 
         // On écrit dans la cellule l'intitulé de la colonne ici Temps Bellman
         cell = row.createCell(2);
-        cell.setCellValue("Temps Classe.BellmanFord");
+        cell.setCellValue("Temps BellmanFord");
 
 
         // On créer un répertoire contenant les fichiers des graphes
-        File folder = new File("graphes");
+        File folder = new File("graphesGenere");
         // Verification que c'est un répertoire
         if (!folder.isDirectory()){
             System.out.println("Le répertoire n'existe pas");
@@ -41,7 +41,7 @@ public class MainComparaisonParGraphe {
 
 
 
-        System.out.println("Classe.Graphe de Djikstra");
+        System.out.println("Graphe de Djikstra");
         int nombreDeGraphe = folder.listFiles().length;
         int i = 0;
         // Tableau contenant les lignes de la feuille
@@ -64,11 +64,11 @@ public class MainComparaisonParGraphe {
 
             // Logs
             if (i % 10 == 0) {
-                System.out.println("Classe.Graphe " + i + "/" + nombreDeGraphe);
+                System.out.println("Graphe " + i + "/" + nombreDeGraphe);
             }
         }
 
-        System.out.println("Classe.Graphe de Classe.BellmanFord");
+        System.out.println("Graphe de BellmanFord");
         i = 0;
         for (File file : folder.listFiles()) {
             // Création de la cellule
@@ -87,7 +87,7 @@ public class MainComparaisonParGraphe {
 
             // Logs
             if (i % 10 == 0) {
-                System.out.println("Classe.Graphe " + i + "/" + nombreDeGraphe);
+                System.out.println("Graphe " + i + "/" + nombreDeGraphe);
             }
         }
 
@@ -103,7 +103,7 @@ public class MainComparaisonParGraphe {
         // Pour pouvoir le lire dans Excel
         FileOutputStream fileOut;
         try {
-            fileOut = new FileOutputStream("tableau des response.xlsx");
+            fileOut = new FileOutputStream("tableau des response Graphe genere.xlsx");
             wb.write(fileOut);
             fileOut.close();
         } catch (IOException e) {

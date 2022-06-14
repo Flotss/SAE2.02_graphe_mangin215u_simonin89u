@@ -5,12 +5,11 @@ import laby.Labyrinthe;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestGrapheLabyrinthe {
+public class TestAdapterGrapheLabyrinthe {
     @Test
     public void testAdaptaterConstruction() throws IOException {
         // initialisation du graphe

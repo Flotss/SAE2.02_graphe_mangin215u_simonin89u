@@ -1,5 +1,9 @@
 package Main;
 
+import Classe.Dijkstra;
+import Classe.GrapheListe;
+import Classe.Valeur;
+
 import java.io.IOException;
 import java.util.Scanner;
 

@@ -1,5 +1,9 @@
 package Main;
 
+import Classe.BellmanFord;
+import Classe.Dijkstra;
+import Classe.GrapheListe;
+
 import java.io.File;
 import java.io.IOException;
 

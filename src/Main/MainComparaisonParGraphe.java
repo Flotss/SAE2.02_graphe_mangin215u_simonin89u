@@ -1,5 +1,8 @@
 package Main;
 
+import Classe.BellmanFord;
+import Classe.Dijkstra;
+import Classe.GrapheListe;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;

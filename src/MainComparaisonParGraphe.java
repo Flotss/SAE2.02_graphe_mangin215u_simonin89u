@@ -27,7 +27,7 @@ public class MainComparaisonParGraphe {
 
 
         // On créer un répertoire contenant les fichiers des graphes
-        File folder = new File("graphes");
+        File folder = new File("graphesGenere");
         // Verification que c'est un répertoire
         if (!folder.isDirectory()){
             System.out.println("Le répertoire n'existe pas");
@@ -86,11 +86,12 @@ public class MainComparaisonParGraphe {
             }
         }
 
-
+        i = 0;
         // On écrit le nom du fichier dans la cellule
         for (File file : folder.listFiles()) {
             cell = rows[i].createCell(0);
             cell.setCellValue(file.getName());
+            i++;
         }
 
         // Création du fichier Excel

@@ -45,6 +45,7 @@ public class AdapterGrapheLabyrinthe implements Graphe {
      * @param y la position y
      */
     public void ajouterArcs(AdapterGrapheLabyrinthe g, Labyrinthe laby, int x, int y) {
+        // Ajout à tous les nœuds adjacents de l'emplacement actuel
         ajouterUnArc(g, laby, x, y, x+1, y);
         ajouterUnArc(g, laby, x, y, x-1, y);
         ajouterUnArc(g, laby, x, y, x, y+1);
@@ -65,14 +66,14 @@ public class AdapterGrapheLabyrinthe implements Graphe {
             if (!laby.murs[nx][(ny)]) {
                 g.ajouterArc("\"" + x + "," + y + "\"", "\"" + nx + "," + ny + "\"", 1);
             }
-        } catch (Exception ingored) {}
+        } catch (Exception ignored) {}
     }
 
     /**
      * Ajoute un arc au graphe
-     * @param depart
-     * @param destination
-     * @param valeur
+     * @param depart le nom du noeud de depart
+     * @param destination le nom du noeud d'arrivee
+     * @param valeur le cout de l'arc
      */
     private void ajouterArc(String depart, String destination, int valeur) {
         if (!this.ensNom.contains(depart)){
@@ -123,5 +124,23 @@ public class AdapterGrapheLabyrinthe implements Graphe {
             }
         }
         return res+"}";
+    }
+
+
+    /**
+     * methode toString qui permet d afficher chaque noeud du graphe avec
+     * ces arcs leur destination et leur cout
+     * @return le liste des noeuds et leurs arcs
+     */
+    public String toString(){
+        String res = "";
+        for (String s : this.ensNom){
+            res += s + " -> ";
+            for(Arc a : this.suivants(s)){
+                res += a.getDest() + "(" + (int)a.getCout() + ") ";
+            }
+            res+= "\n";
+        }
+        return res;
     }
 }

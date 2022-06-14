@@ -1,5 +1,7 @@
+package Classe;
+
 /**
- * Classe Arc qui represente un arc d'un graphe partant d'un noeud
+ * Classe Classe.Arc qui represente un arc d'un graphe partant d'un noeud
  */
 public class Arc {
     /**

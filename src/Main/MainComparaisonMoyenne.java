@@ -1,3 +1,5 @@
+package Main;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -17,7 +19,7 @@ public class MainComparaisonMoyenne {
             long tempsEnd = System.nanoTime();
             moyenneTempsDjikstra += (tempsEnd - tempsStart);
             i++;
-            System.out.println("Graphe " + i + "/" + nombreDeGraphe);
+            System.out.println("Classe.Graphe " + i + "/" + nombreDeGraphe);
         }
         moyenneTempsDjikstra /= nombreDeGraphe;
 
@@ -29,11 +31,11 @@ public class MainComparaisonMoyenne {
             long tempsEnd = System.nanoTime();
             moyenneTempsBellman += (tempsEnd - tempsStart);
             i++;
-            System.out.println("Graphe " + i + "/" + nombreDeGraphe);
+            System.out.println("Classe.Graphe " + i + "/" + nombreDeGraphe);
         }
         moyenneTempsBellman /= nombreDeGraphe;
 
-        System.out.println("Temps moyen de Dijkstra : " + moyenneTempsDjikstra);
+        System.out.println("Temps moyen de Classe.Dijkstra : " + moyenneTempsDjikstra);
         System.out.println("Temps moyen de Bellman : " + moyenneTempsBellman);
 
     }

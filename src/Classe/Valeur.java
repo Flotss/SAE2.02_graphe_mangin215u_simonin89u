@@ -1,3 +1,5 @@
+package Classe;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
@@ -27,9 +29,9 @@ public class Valeur {
     }
 
     /**
-     * constructeur qui prend en parametre un objet de type Valeur
+     * constructeur qui prend en parametre un objet de type Classe.Valeur
      * pour copier les valeurs et les parents
-     * @param a un objet de type Valeur
+     * @param a un objet de type Classe.Valeur
      */
     public Valeur(Valeur a){
         this.valeur = new TreeMap<>();

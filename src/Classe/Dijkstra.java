@@ -1,4 +1,4 @@
-//Entrees :
+package Classe;//Entrees :
 //        G un graphe oriente avec une ponderation (poids) positive des arcs
 //        A un sommet (depart) de G
 //        Debut
@@ -26,20 +26,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * classe Dijkstra qui permet de calculer le plus court chemin entre deux sommets
- * avec la methode de Dijkstra
+ * classe Classe.Dijkstra qui permet de calculer le plus court chemin entre deux sommets
+ * avec la methode de Classe.Dijkstra
  */
 public class Dijkstra {
     /**
      * methode qui calcule le plus court chemin entre tous les sommets
      * @param g le graphe
      * @param depart le sommet de depart
-     * @return un objet Valeur qui contient les plus courts chemins et leur cout entre chaque sommet
+     * @return un objet Classe.Valeur qui contient les plus courts chemins et leur cout entre chaque sommet
      */
     public static Valeur resoudre(Graphe g, String depart) {
         // initialisation de la liste de noeud qu il reste a traiter
         List<Noeud> Q = new ArrayList<>();
-        // initialisation de l'objet Valeur
+        // initialisation de l'objet Classe.Valeur
         Valeur val = new Valeur();
 
         // initialisation toutes les valeurs a +l infini et leur parent a null et on les ajoute a la liste de noeud qu il reste a traiter

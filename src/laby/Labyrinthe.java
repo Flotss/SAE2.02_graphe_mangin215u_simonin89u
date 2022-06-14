@@ -1,5 +1,7 @@
 package laby;
 
+import Classe.GrapheListe;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -140,6 +142,11 @@ public class Labyrinthe {
             return suivante;
         }
         return courante;
+    }
+
+    public GrapheListe genererGraphe(){
+
+        return null;
     }
 
 

@@ -1,3 +1,7 @@
+import Classe.BellmanFord;
+import Classe.Dijkstra;
+import Classe.GrapheListe;
+import Classe.Valeur;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -7,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestGrapheListe {
 
     /**
-     * test le constructeur sans parametre de la classe GrapheListe
+     * test le constructeur sans parametre de la classe Classe.GrapheListe
      * avec la figure1 du sujet
      */
     @Test

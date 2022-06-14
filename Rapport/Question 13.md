@@ -2,7 +2,7 @@
 #### Question 13 : Algorithme du point fixe
 
 ```pseudocode
-fonction pointFixe(g InOut : Graphe, depart : Noeud)
+fonction pointFixe(g InOut : Classe.Graphe, depart : Classe.Noeud)
  DEBUT
     L(depart) <- 0
     Pour i allant de 1 à taille de g
@@ -31,6 +31,6 @@ Lexique :
     ancien : Ancienne valeur de L
     nbrSommets : Nombre de sommets du graphe
     indice : entier, indice d'itération
-    n : Noeud, sommet du graphe
-    a : Arc, arc du graphe
+    n : Classe.Noeud, sommet du graphe
+    a : Classe.Arc, arc du graphe
 ```

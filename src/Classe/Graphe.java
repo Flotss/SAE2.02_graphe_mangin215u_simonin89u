@@ -1,5 +1,6 @@
 package Classe;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -18,4 +19,10 @@ public interface Graphe {
      * @return la liste des arcs partant du noeud
      */
     public List<Arc> suivants(String n);
+
+    /**
+     * Renvoie le format GraphViz du graphe
+     * @return Une chaine de caracteres representant le graphe en format GraphViz
+     */
+    public String toGraphviz();
 }

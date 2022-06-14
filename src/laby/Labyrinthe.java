@@ -171,7 +171,7 @@ public class Labyrinthe {
      * @param y la position y
      * @param valeur la valeur de l'arc
      */
-    private void ajouterArcs(GrapheListe g, int x, int y, int valeur) {
+    public void ajouterArcs(GrapheListe g, int x, int y, int valeur) {
         ajouterUnArc(g, x, y, x+1, y,valeur);
         ajouterUnArc(g, x, y, x-1, y,valeur);
         ajouterUnArc(g, x, y, x, y+1,valeur);
@@ -187,7 +187,7 @@ public class Labyrinthe {
      * @param ny la position y de la destination
      * @param valeur la valeur de l'arc
      */
-    private void ajouterUnArc (GrapheListe g, int x, int y, int nx, int ny , int valeur){
+    public void ajouterUnArc (GrapheListe g, int x, int y, int nx, int ny , int valeur){
         try {
             // on verifie que la destination n'est pas un mur et on essaie d ajouter l arc
             if (!murs[x][(y)]) {

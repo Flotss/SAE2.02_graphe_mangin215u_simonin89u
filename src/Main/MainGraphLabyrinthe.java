@@ -14,7 +14,7 @@ public class MainGraphLabyrinthe {
             System.out.println(graphe.toGraphviz());
             Valeur valeur = BellmanFord.resoudre(graphe, "\"1,1\"");
             System.out.println(valeur);
-            System.out.println(valeur.calculerChemin("\"8,1\""));
+            System.out.println(valeur.calculerChemin("\"8,5\""));
         }catch (IOException e){
             System.out.println("Erreur lecture fichier");
         }

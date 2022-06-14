@@ -8,17 +8,17 @@ import java.util.List;
 
 
 public class AdapterGrapheLabyrinthe implements Graphe {
-    private Labyrinthe laby;
+    private final Labyrinthe laby;
 
     /**
      * Attribut : liste des noms des noeuds du graphe
      */
-    private List<String> ensNom;
+    private final List<String> ensNom;
 
     /**
      * Attribut : liste des noeuds du graphe
      */
-    private List<Noeud> ensNoeuds;
+    private final List<Noeud> ensNoeuds;
 
     public AdapterGrapheLabyrinthe(String chemin) throws IOException {
         this.laby = new Labyrinthe(chemin);
@@ -30,7 +30,7 @@ public class AdapterGrapheLabyrinthe implements Graphe {
             for (int j = 0; j < laby.murs[i].length; j++) {
                 // si il n y a pas de mur a la position actuelle on ajoute un arc
                 if (!laby.murs[i][j]) {
-                    ajouterArcs(this, laby, i, j, 1);
+                    ajouterArcs(this, laby, i, j);
                 }
             }
         }
@@ -43,13 +43,12 @@ public class AdapterGrapheLabyrinthe implements Graphe {
      * @param g le graphe
      * @param x la position x
      * @param y la position y
-     * @param valeur la valeur de l'arc
      */
-    public void ajouterArcs(AdapterGrapheLabyrinthe g, Labyrinthe laby, int x, int y, int valeur) {
-        ajouterUnArc(g, laby, x, y, x+1, y,valeur);
-        ajouterUnArc(g, laby, x, y, x-1, y,valeur);
-        ajouterUnArc(g, laby, x, y, x, y+1,valeur);
-        ajouterUnArc(g, laby, x, y, x, y-1,valeur);
+    public void ajouterArcs(AdapterGrapheLabyrinthe g, Labyrinthe laby, int x, int y) {
+        ajouterUnArc(g, laby, x, y, x+1, y);
+        ajouterUnArc(g, laby, x, y, x-1, y);
+        ajouterUnArc(g, laby, x, y, x, y+1);
+        ajouterUnArc(g, laby, x, y, x, y-1);
     }
 
     /**
@@ -59,13 +58,12 @@ public class AdapterGrapheLabyrinthe implements Graphe {
      * @param y la position y
      * @param nx la position x de la destination
      * @param ny la position y de la destination
-     * @param valeur la valeur de l'arc
      */
-    public void ajouterUnArc (AdapterGrapheLabyrinthe g, Labyrinthe laby, int x, int y, int nx, int ny , int valeur){
+    public void ajouterUnArc (AdapterGrapheLabyrinthe g, Labyrinthe laby, int x, int y, int nx, int ny){
         try {
             // on verifie que la destination n'est pas un mur et on essaie d ajouter l arc
-            if (!laby.murs[x][(y)]) {
-                g.ajouterArc("\"" + x + "," + y + "\"", "\"" + nx + "," + ny + "\"", valeur);
+            if (!laby.murs[nx][(ny)]) {
+                g.ajouterArc("\"" + x + "," + y + "\"", "\"" + nx + "," + ny + "\"", 1);
             }
         } catch (Exception ingored) {}
     }

@@ -156,7 +156,7 @@ public class Labyrinthe {
             for (int j = 0; j < murs[i].length; j++) {
                 // si il n y a pas de mur a la position actuelle on ajoute un arc
                 if (!murs[i][j]) {
-                    ajouterArcs(graphe, i, j, 1);
+                    ajouterArcs(graphe, i, j);
                 }
             }
         }
@@ -169,13 +169,12 @@ public class Labyrinthe {
      * @param g le graphe
      * @param x la position x
      * @param y la position y
-     * @param valeur la valeur de l'arc
      */
-    public void ajouterArcs(GrapheListe g, int x, int y, int valeur) {
-        ajouterUnArc(g, x, y, x+1, y,valeur);
-        ajouterUnArc(g, x, y, x-1, y,valeur);
-        ajouterUnArc(g, x, y, x, y+1,valeur);
-        ajouterUnArc(g, x, y, x, y-1,valeur);
+    public void ajouterArcs(GrapheListe g, int x, int y) {
+        ajouterUnArc(g, x, y, x+1, y);
+        ajouterUnArc(g, x, y, x-1, y);
+        ajouterUnArc(g, x, y, x, y+1);
+        ajouterUnArc(g, x, y, x, y-1);
     }
 
     /**
@@ -185,13 +184,12 @@ public class Labyrinthe {
      * @param y la position y
      * @param nx la position x de la destination
      * @param ny la position y de la destination
-     * @param valeur la valeur de l'arc
      */
-    public void ajouterUnArc (GrapheListe g, int x, int y, int nx, int ny , int valeur){
+    public void ajouterUnArc (GrapheListe g, int x, int y, int nx, int ny){
         try {
             // on verifie que la destination n'est pas un mur et on essaie d ajouter l arc
-            if (!murs[x][(y)]) {
-                g.ajouterArc("\"" + x + "," + y + "\"", "\"" + nx + "," + ny + "\"", valeur);
+            if (!murs[nx][ny]) {
+                g.ajouterArc("\"" + x + "," + y + "\"", "\"" + nx + "," + ny + "\"", 1);
             }
         } catch (Exception ingored) {}
     }

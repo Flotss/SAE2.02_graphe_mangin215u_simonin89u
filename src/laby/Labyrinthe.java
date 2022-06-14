@@ -149,18 +149,18 @@ public class Labyrinthe {
         for (int i = 0; i < murs.length; i++) {
             for (int j = 0; j < murs[i].length; j++) {
                 if (!murs[i][j]) {
-                    ajouterArcs(graphe, i, j, 1);
+                    ajouterArcs(graphe, i, j);
                 }
             }
         }
         return graphe;
     }
 
-    private void ajouterArcs(GrapheListe g, int x, int y, int valeur) {
-        ajouterUnArc(g, x, y, x+1, y,valeur);
-        ajouterUnArc(g, x, y, x-1, y,valeur);
-        ajouterUnArc(g, x, y, x, y+1,valeur);
-        ajouterUnArc(g, x, y, x, y-1,valeur);
+    private void ajouterArcs(GrapheListe g, int x, int y) {
+        ajouterUnArc(g, x, y, x+1, y, 1);
+        ajouterUnArc(g, x, y, x-1, y, 1);
+        ajouterUnArc(g, x, y, x, y+1, 1);
+        ajouterUnArc(g, x, y, x, y-1, 1);
     }
 
     private void ajouterUnArc (GrapheListe g, int x, int y, int nx, int ny , int valeur){

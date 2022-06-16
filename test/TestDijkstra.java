@@ -40,7 +40,7 @@ public class TestDijkstra {
     public void testCalculerCheminDijkstra() throws IOException {
         // initialisation du graphe
         GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
-        Valeur res = BellmanFord.resoudre(figure2, "E");
+        Valeur res = Dijkstra.resoudre(figure2, "E");
         // verifications
         ArrayList<String> resAttendu = new ArrayList<>();
         resAttendu.add("E");

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestGrapheListe {
 
     /**
-     * test le constructeur sans parametre de la classe Classe.GrapheListe
+     * test le constructeur sans parametre de la classe GrapheListe
      * avec la figure1 du sujet
      */
     @Test
@@ -48,55 +48,5 @@ public class TestGrapheListe {
         assertEquals(43 , figure1.suivants("E").get(0).getCout(), "le cout de l'arc doit etre 43");
     }
 
-    /**
-     * test la methode du point fixe sur le graphe
-     * avec la figure1 du sujet
-     */
-    @Test
-    public void testMethodeDuPointFixe() throws IOException {
-        // initialisation du graphe
-        GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
-        Valeur res = BellmanFord.resoudre(figure2, "A");
-        // verifications
-        assertEquals(0,  res.getValeur("A"), "La distance vers A devrait etre 0");
-        assertEquals(12, res.getValeur("B"), "La distance vers B devrait etre 12");
-        assertEquals(76, res.getValeur("C"), "La distance vers C devrait etre 76");
-        assertEquals(66, res.getValeur("D"), "La distance vers D devrait etre 66");
-        assertEquals(23, res.getValeur("E"), "La distance vers E devrait etre 23");
-    }
-
-    /**
-     * test la methode du point fixe sur le graphe
-     * @throws IOException
-     */
-    @Test
-    public void testMethodeDuPointFixe2() throws IOException {
-        // initialisation du graphe
-        GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
-        Valeur res = BellmanFord.resoudre(figure2, "E");
-        // verifications
-        assertEquals(72, res.getValeur("A"), "La distance vers A devrait etre 0");
-        assertEquals(66, res.getValeur("B"), "La distance vers B devrait etre 12");
-        assertEquals(53, res.getValeur("C"), "La distance vers C devrait etre 76");
-        assertEquals(43, res.getValeur("D"), "La distance vers D devrait etre 66");
-        assertEquals(0,  res.getValeur("E"), "La distance vers E devrait etre 23");
-    }
-
-    /**
-     * test la methode de Dijkstra sur le graphe
-     * @throws IOException
-     */
-    @Test
-    public void testMethodeDijkstra() throws IOException {
-        // initialisation du graphe
-        GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
-        Valeur res = Dijkstra.resoudre(figure2, "A");
-        // verifications
-        assertEquals(0,  res.getValeur("A"), "La distance vers A devrait etre 0");
-        assertEquals(12, res.getValeur("B"), "La distance vers B devrait etre 12");
-        assertEquals(76, res.getValeur("C"), "La distance vers C devrait etre 76");
-        assertEquals(66, res.getValeur("D"), "La distance vers D devrait etre 66");
-        assertEquals(23, res.getValeur("E"), "La distance vers E devrait etre 23");
-    }
 
 }

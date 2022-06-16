@@ -10,6 +10,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestAdapterGrapheLabyrinthe {
+
+    /**
+     * Test du constructeur de AdapterGrapheLabyrinthe
+     * @throws IOException Erreur lors de la lecture du fichier
+     */
     @Test
     public void testAdaptaterConstruction() throws IOException {
         // initialisation du graphe
@@ -18,6 +23,10 @@ public class TestAdapterGrapheLabyrinthe {
         assertEquals(g.listeNoeuds().size(), 34, "il devrait y avoir 34 noeuds");
     }
 
+    /**
+     * Test que tous les noeuds sont corrects
+     * @throws IOException Erreur lors de la lecture du fichier
+     */
     @Test
     public void testNoeudCorrect() throws IOException {
         // initialisation du graphe
@@ -33,6 +42,10 @@ public class TestAdapterGrapheLabyrinthe {
         }
     }
 
+    /**
+     * Test que tous les arcs sont corrects
+     * @throws IOException Erreur lors de la lecture du fichier
+     */
     @Test
     public void testArcCorrect() throws IOException {
         // initialisation du graphe
@@ -63,6 +76,10 @@ public class TestAdapterGrapheLabyrinthe {
     }
 
 
+    /**
+     * Test que le graphe est le même que celui du labyrinthe
+     * @throws IOException Erreur lors de la lecture du fichier
+     */
     @Test
     public void testGraphviz() throws IOException {
         // initialisation du graphe

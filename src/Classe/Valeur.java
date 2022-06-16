@@ -1,9 +1,9 @@
 package Classe;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.List;
 
 /**
  * Classe fournie, permet de stocker des valeurs associées au noeud et des parents
@@ -29,14 +29,15 @@ public class Valeur {
     }
 
     /**
-     * constructeur qui prend en parametre un objet de type Classe.Valeur
+     * constructeur qui prend en parametre un objet de type Valeur
      * pour copier les valeurs et les parents
-     * @param a un objet de type Classe.Valeur
+     *
+     * @param a un objet de type Valeur
      */
-    public Valeur(Valeur a){
+    public Valeur(Valeur a) {
         this.valeur = new TreeMap<>();
         this.parent = new TreeMap<>();
-        for(String s : a.valeur.keySet()){
+        for (String s : a.valeur.keySet()) {
             this.valeur.put(s, a.valeur.get(s));
             this.parent.put(s, a.parent.get(s));
         }
@@ -44,14 +45,15 @@ public class Valeur {
 
     /**
      * renvoie la list des noeuds du chemin allant vers un noeud
+     *
      * @param destination le noeud d'arrivee
      * @return la liste des noeuds du chemin
      */
-    public List<String> calculerChemin(String destination){
+    public List<String> calculerChemin(String destination) {
         List<String> chemin = new ArrayList<>();
 
         // On ajoute le noeud parent jusqu'au point de départ du graphe
-        while(destination != null){
+        while (destination != null) {
             chemin.add(destination);
             destination = this.parent.get(destination);
         }
@@ -129,10 +131,11 @@ public class Valeur {
 
     /**
      * Retourne si deux valeurs sont égales
+     *
      * @param val valeur a comparer
      * @return si oui ou non les valeurs sont eagles
      */
-    public boolean equals(Valeur val){
+    public boolean equals(Valeur val) {
         return val.valeur.values().containsAll(this.valeur.values());
     }
 

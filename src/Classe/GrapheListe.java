@@ -1,28 +1,30 @@
 package Classe;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * La classe GraphListe permet de representer les donnees associees a un graphe
  */
-public class GrapheListe implements Graphe{
+public class GrapheListe implements Graphe {
 
     /**
      * Attribut : liste des noms des noeuds du graphe
      */
-    private List<String> ensNom;
+    private final List<String> ensNom;
 
     /**
      * Attribut : liste des noeuds du graphe
      */
-    private List<Noeud> ensNoeuds;
+    private final List<Noeud> ensNoeuds;
 
     /**
      * Constructeur de la classe GraphListe
      */
-    public GrapheListe(){
+    public GrapheListe() {
         this.ensNom = new ArrayList<>();
         this.ensNoeuds = new ArrayList<>();
     }
@@ -34,19 +36,19 @@ public class GrapheListe implements Graphe{
     }
 
 
-
     /**
      * Ajoute un arc au graphe
-     * @param depart le nom du noeud de depart
+     *
+     * @param depart      le nom du noeud de depart
      * @param destination le nom du noeud d'arrivee
-     * @param cout le cout de l'arc
+     * @param cout        le cout de l'arc
      */
-    public void ajouterArc(String depart, String destination, double cout){
-        if (!this.ensNom.contains(depart)){
+    public void ajouterArc(String depart, String destination, double cout) {
+        if (!this.ensNom.contains(depart)) {
             this.ensNom.add(depart);
             this.ensNoeuds.add(new Noeud(depart));
         }
-        if (!this.ensNom.contains(destination)){
+        if (!this.ensNom.contains(destination)) {
             this.ensNom.add(destination);
             this.ensNoeuds.add(new Noeud(destination));
         }
@@ -55,23 +57,26 @@ public class GrapheListe implements Graphe{
 
     /**
      * Renvoie la liste des noeuds du graphe
+     *
      * @return la liste des noeuds
      */
-    public List<String> listeNoeuds(){
+    public List<String> listeNoeuds() {
         return this.ensNom;
     }
 
     /**
      * Renvoie la liste des arcs partant d'un noeud
+     *
      * @param n Nom du noeud
      * @return la liste des arcs partant du noeud
      */
-    public List<Arc> suivants(String n){
+    public List<Arc> suivants(String n) {
         return this.ensNoeuds.get(this.ensNom.indexOf(n)).getAdj();
     }
 
     /**
      * Construit un graphe a partir d un fichier
+     *
      * @param nomFichier le nom du fichier
      * @throws IOException si le fichier n'existe pas
      */
@@ -89,33 +94,35 @@ public class GrapheListe implements Graphe{
     /**
      * methode toString qui permet d afficher chaque noeud du graphe avec
      * ces arcs leur destination et leur cout
+     *
      * @return le liste des noeuds et leurs arcs
      */
-    public String toString(){
+    public String toString() {
         String res = "";
-        for (String s : this.ensNom){
+        for (String s : this.ensNom) {
             res += s + " -> ";
-            for(Arc a : this.suivants(s)){
-                res += a.getDest() + "(" + (int)a.getCout() + ") ";
+            for (Arc a : this.suivants(s)) {
+                res += a.getDest() + "(" + (int) a.getCout() + ") ";
             }
-            res+= "\n";
+            res += "\n";
         }
         return res;
     }
 
     /**
      * Renvoie le format GraphViz du graphe
+     *
      * @return Une chaine de caracteres representant le graphe en format GraphViz
      */
-    public String toGraphviz(){
+    public String toGraphviz() {
         String res = "digraph {\n";
-        for (String s : this.ensNom){
-            for(Arc a : this.suivants(s)){
+        for (String s : this.ensNom) {
+            for (Arc a : this.suivants(s)) {
                 res += s + " -> ";
-                res += a.getDest() + " [label = " + (int)a.getCout() + "]\n";
+                res += a.getDest() + " [label = " + (int) a.getCout() + "]\n";
             }
         }
-        return res+"}";
+        return res + "}";
     }
 
 }

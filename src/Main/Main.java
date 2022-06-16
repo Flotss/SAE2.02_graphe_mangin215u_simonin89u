@@ -12,6 +12,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
 
+        // PARTIE 1
         // Creation d'un graphe pour representer la figure 1 du sujet
         GrapheListe figure1 = new GrapheListe();
 
@@ -27,6 +28,7 @@ public class Main {
         // Affichage du graphe 1
         System.out.println(figure1);
 
+        // PARTIE 2
         // Creation du graphe avec un fichier
         GrapheListe figure2 = new GrapheListe("graphes/graphe_exemple1.txt");
 

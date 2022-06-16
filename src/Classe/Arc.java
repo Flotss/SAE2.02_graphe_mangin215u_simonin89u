@@ -1,7 +1,7 @@
 package Classe;
 
 /**
- * Classe Classe.Arc qui represente un arc d'un graphe partant d'un noeud
+ * Arc qui represente un arc d'un graphe partant d'un noeud
  */
 public class Arc {
     /**
@@ -16,27 +16,34 @@ public class Arc {
 
     /**
      * Le constructeur de l'arc
-     * @param nom La destination de l'arc
+     *
+     * @param nom  La destination de l'arc
      * @param cout Le cout de l'arc
      */
     public Arc(String nom, double cout) {
-      this.dest = nom;
-      this.cout = cout;
+        this.dest = nom;
+        if (cout < 0) {
+            this.cout = 1;
+        } else {
+            this.cout = cout;
+        }
     }
 
     /**
      * getter de la destination de l arc
+     *
      * @return la destination de l arc
      */
     public String getDest() {
-      return dest;
+        return dest;
     }
 
     /**
      * getter du cout de l arc
+     *
      * @return le cout de l arc
      */
     public double getCout() {
-      return cout;
+        return cout;
     }
 }

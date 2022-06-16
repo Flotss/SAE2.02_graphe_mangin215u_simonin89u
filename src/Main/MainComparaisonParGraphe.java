@@ -22,7 +22,7 @@ public class MainComparaisonParGraphe {
         Row row = feuille.createRow(0);
         //Créer une cellule
         Cell cell = row.createCell(1);
-        // On écrit dans la cellule l'intitulé de la colonne ici Temps Classe.Dijkstra
+        // On écrit dans la cellule l'intitulé de la colonne ici Temps Dijkstra
         cell.setCellValue("Temps Dijkstra");
 
         // On écrit dans la cellule l'intitulé de la colonne ici Temps Bellman
@@ -33,21 +33,20 @@ public class MainComparaisonParGraphe {
         // On créer un répertoire contenant les fichiers des graphes
         File folder = new File("graphes");
         // Verification que c'est un répertoire
-        if (!folder.isDirectory()){
+        if (!folder.isDirectory()) {
             System.out.println("Le répertoire n'existe pas");
             System.exit(1);
         }
-
 
 
         System.out.println("Graphe de Djikstra");
         int nombreDeGraphe = folder.listFiles().length;
         int i = 0;
         // Tableau contenant les lignes de la feuille
-        Row[] rows = new Row[nombreDeGraphe+1];
+        Row[] rows = new Row[nombreDeGraphe + 1];
         for (File file : folder.listFiles()) {
             // Création de la ligne et de la cellule
-            rows[i] = feuille.createRow(i+1);
+            rows[i] = feuille.createRow(i + 1);
             cell = rows[i].createCell(1);
 
             // Execution de l'algorithme de Djikstra
@@ -73,7 +72,7 @@ public class MainComparaisonParGraphe {
             // Création de la cellule
             cell = rows[i].createCell(2);
 
-            // Execution de l'algorithme de Classe.BellmanFord
+            // Execution de l'algorithme de BellmanFord
             // En prenant en compte le temps utilisé
             GrapheListe graphe = new GrapheListe(file.getPath());
             long tempsStart = System.nanoTime();
